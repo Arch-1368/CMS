@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+body {
+    font-family: 'Poppins', sans-serif;
+    /* background: linear-gradient(135deg, #6a11cb, #2575fc); */
+    background: #81c4eb;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+  }
+  .navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .dropdown-toggle {
+  color: white !important;
+}
+.navbar {
+  background-color: #001b2e;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+.navbar-nav .nav-link {
+  color: white;
+}
+.navbar-nav .nav-link:hover {
+  color: #2575fc;
+}
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+.section {
+  padding: 50px 0;
+} 
+  .offering-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 500px;
+    align-items: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+    justify-content: center;
+  }
+  #upi_logo{
+    /* border-radius: 500px; */
+    height:45px;
+    width:45px;
+}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2575fc;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #444;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  select:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+  
+  .amount-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .amount-btn {
+    padding: 12px 20px;
+    background-color: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .amount-btn:hover {
+    background-color: #1a5bbf;
+    transform: translateY(-2px);
+  }
+  
+  .payment-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .payment-method {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .payment-method:hover {
+    background-color: #f5f5f5;
+    border-color: #2575fc;
+  }
+  
+  .payment-icon {
+    font-size: 18px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #1a5bbf;
+    transform: translateY(-2px);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #confirmation-message {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  #confirmation-message h2 {
+    font-size: 24px;
+    color: #2575fc;
+    margin-bottom: 10px;
+  }
+  
+  #confirmation-message p {
+    font-size: 16px;
+    color: #666;
+  }

@@ -1,0 +1,67 @@
+
+/* indexStyles.css */
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .dropdown-toggle {
+  color: white !important;
+}
+/* Custom Styling */
+.navbar {
+  background-color: #001b2e;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+.navbar-nav .nav-link {
+  color: white;
+}
+.navbar-nav .nav-link:hover {
+  color: #2575fc;
+}
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+.section {
+  padding: 50px 0;
+}
+
+#admin-login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+.admin-login-container{
+  margin-top: 100px;
+}
+h2{
+  text-align: center;
+  color: #001b2e;
+}
+#admin-login-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#admin-login-form button {
+  width: 100%;
+  padding: 10px;
+  background: #001b2e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#admin-login-form button:hover {
+    background: #024474;
+  }
+  
+  

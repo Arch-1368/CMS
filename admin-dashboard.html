@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="indexStyles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Ensure the footer stays at the bottom */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .content {
+      flex: 1; /* Pushes the footer to the bottom */
+    }
+    .card-header {
+      background-color: #001b2e;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #001b2e;">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-cogs"></i> Admin Panel
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="admin-dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adminEvent-panel.html"><i class="fas fa-calendar-alt"></i> Manage Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="manage-user.html"><i class="fas fa-users"></i> Manage Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="manage-offring.html"><i class="fas fa-hand-holding-usd"></i> Offering Details</a>
+          </li>
+          <li class="nav-item">
+            <button id="logout-btn" class="btn btn-danger btn-sm ms-3"><i class="fas fa-sign-out-alt"></i> Logout</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="container mt-5">
+      <div class="text-center">
+        <h2 class="text-primary"><i class="fas fa-chart-line"></i> Admin Dashboard</h2>
+        <p class="text-muted">Welcome to the admin dashboard. Here is an overview of the website's statistics:</p>
+      </div>
+
+      <!-- Dashboard Cards -->
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm">
+            <div class="card-body">
+              <i class="fas fa-calendar-alt fa-3x text-primary mb-3"></i>
+              <h5 class="card-title">Total Events</h5>
+              <p class="card-text"><strong id="total-events">0</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm">
+            <div class="card-body">
+              <i class="fas fa-users fa-3x text-success mb-3"></i>
+              <h5 class="card-title">Total Users</h5>
+              <p class="card-text"><strong id="total-users">0</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm">
+            <div class="card-body">
+              <i class="fas fa-hand-holding-usd fa-3x text-warning mb-3"></i>
+              <h5 class="card-title">Total Offerings</h5>
+              <p class="card-text"><strong id="total-offerings">$0.00</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Reports -->
+      <div class="accordion mt-5" id="dashboardAccordion">
+        <!-- Event Report Section -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingEventReport">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEventReport" aria-expanded="true" aria-controls="collapseEventReport">
+              <strong>Event Report</strong>
+            </button>
+          </h2>
+          <div id="collapseEventReport" class="accordion-collapse collapse show" aria-labelledby="headingEventReport" data-bs-parent="#dashboardAccordion">
+            <div class="accordion-body">
+              <p>Total number of events this month: <strong id="event-report-monthly-total">0</strong></p>
+              <ul id="event-list" class="list-group">
+                <!-- List of events will be dynamically added here -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finance Report Section -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFinanceReport">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinanceReport" aria-expanded="false" aria-controls="collapseFinanceReport">
+              <strong>Finance Report</strong>
+            </button>
+          </h2>
+          <div id="collapseFinanceReport" class="accordion-collapse collapse" aria-labelledby="headingFinanceReport" data-bs-parent="#dashboardAccordion">
+            <div class="accordion-body">
+              <form id="finance-report-form">
+                <!-- Total Offerings -->
+                <div class="mb-3">
+                  <label for="finance-total-offerings" class="form-label">Total Offerings</label>
+                  <input type="text" id="finance-total-offerings" class="form-control" readonly>
+                </div>
+
+                <!-- Total Expenses -->
+                <div class="mb-3">
+                  <label for="finance-total-expenses" class="form-label">Total Expenses</label>
+                  <input type="number" id="finance-total-expenses" class="form-control" placeholder="Enter total expenses">
+                </div>
+
+                <!-- Remaining Balance -->
+                <div class="mb-3">
+                  <label for="finance-remaining-balance" class="form-label">Remaining Balance</label>
+                  <input type="text" id="finance-remaining-balance" class="form-control" readonly>
+                </div>
+
+                <!-- Update Button -->
+                <button type="button" id="update-finance-report" class="btn btn-primary">Update Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-3 mt-5" style="background-color: #001b2e; color: white;">
+    <p>&copy; 2025 Admin Panel. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Fetch and display data for Event Report and Finance Report
+    document.addEventListener('DOMContentLoaded', function () {
+      // Fetch total users
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      document.getElementById('total-users').textContent = users.length;
+
+      // Fetch total events
+      const events = JSON.parse(localStorage.getItem('events')) || [];
+      document.getElementById('total-events').textContent = events.length;
+
+      // Fetch total offerings
+      const offerings = JSON.parse(localStorage.getItem('offerings')) || [];
+      const totalOfferings = offerings.reduce((sum, offering) => sum + parseFloat(offering.amount || 0), 0);
+      document.getElementById('total-offerings').textContent = `$${totalOfferings.toFixed(2)}`;
+      document.getElementById('finance-total-offerings').value = `$${totalOfferings.toFixed(2)}`;
+
+      // Fetch saved expenses from localStorage
+      const savedExpenses = parseFloat(localStorage.getItem('totalExpenses')) || 0;
+      document.getElementById('finance-total-expenses').value = savedExpenses;
+
+      // Calculate and display remaining balance
+      const remainingBalance = totalOfferings - savedExpenses;
+      document.getElementById('finance-remaining-balance').value = `$${remainingBalance.toFixed(2)}`;
+
+      // Event Report
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth();
+      const currentYear = currentDate.getFullYear();
+      const monthlyEvents = events.filter(event => {
+        const eventDate = new Date(event.date);
+        return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
+      });
+
+      document.getElementById('event-report-monthly-total').textContent = monthlyEvents.length;
+
+      const eventList = document.getElementById('event-list');
+      eventList.innerHTML = ''; // Clear existing events
+      monthlyEvents.forEach(event => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list-group-item');
+        listItem.innerHTML = `
+          <strong>${event.name}</strong>
+          <ul>
+            <li>Date: ${event.date}</li>
+            <li>Time: ${event.time}</li>
+            <li>Members Present: ${event.members ? event.members.join(', ') : 'N/A'}</li>
+          </ul>
+        `;
+        eventList.appendChild(listItem);
+      });
+    });
+
+    // Update finance report
+    document.getElementById('update-finance-report').addEventListener('click', function () {
+      const totalOfferings = parseFloat(document.getElementById('finance-total-offerings').value.replace('$', '')) || 0;
+      const totalExpenses = parseFloat(document.getElementById('finance-total-expenses').value) || 0;
+
+      // Save updated expenses to localStorage
+      localStorage.setItem('totalExpenses', totalExpenses);
+
+      // Calculate and display remaining balance
+      const remainingBalance = totalOfferings - totalExpenses;
+      document.getElementById('finance-remaining-balance').value = `$${remainingBalance.toFixed(2)}`;
+
+      alert('Finance report updated successfully!');
+    });
+
+//common js 
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            alert('Logged out successfully.');
+            window.location.href = 'index.html';
+        });
+    }
+});
+
+// Logout Functionality
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        alert('Logged out successfully.');
+        window.location.href = 'login.html';
+    });
+}
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
